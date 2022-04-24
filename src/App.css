@@ -1,8 +1,63 @@
 *, *::before, *::after {
-  
+  box-sizing: border-box;
+}
+
+:root {
+    --mainColorDark: #2A2A2B;
+    --secondaryColorDark: #c1c1c1;
+    --mainTextColorDark: #EEF2FF;
+    --secondaryTextColorDark: #F95959;
+    --mainTextHoverColor: #7f8183;
 }
 
 body {
   margin: 0;
+  background-color: var(--mainColorDark);
 }
 
+.calcGrid {
+  display: grid;
+  justify-content: center;
+  margin-top: 2rem;
+  grid-template-columns: repeat(4, 6rem);
+  grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+}
+
+.calcGrid > button {
+  cursor: pointer;
+  font-size: 1.75rem;
+  border: 1 solid rgb(125, 124, 124);
+  outline: none;
+}
+
+.calcGrid > button:hover {
+  background-color: ;
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.output {
+  grid-column: 1 / -1;
+  background-color: rgb(92, 92, 92);
+  opacity: 0.75;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 1rem;
+  word-wrap: break-word;
+  word-break: break-all;
+
+}
+
+.output .prevOp {
+  color:rgb(215, 215, 215);
+  font-size: 1,5rem;
+}
+
+.output .currOp {
+  color:rgb(255, 255, 255);
+  font-size: 2.5rem;
+}
