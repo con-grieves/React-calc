@@ -25,6 +25,7 @@ function reducer(state, { type, payload }) {
           overwrite: false,
         }
       }
+      if (payload.digit === ".") console.log(state.currOp)
       if (payload.digit === "0" && state.currOp === "0") return state
       if (payload.digit === "." && state.currOp?.includes(".")) return state
       return {
@@ -120,9 +121,9 @@ function evaluate ({ currOp, prevOp, op }) {
   return computation.toString()
 }
 
-//Formatting ops to include commas for larger integers
+//Formatting to include commas for larger integers
 
-const format = new Intl.NumberFormat("en-uk", {
+const format = new Intl.NumberFormat("en-us", {
   maximumFractionDigits: 0,
 })
 
@@ -130,6 +131,7 @@ function formatOp(op) {
   if (op == null) return
   const [integer, decimal] = op.split('.')
   if (decimal == null) return format.format(integer)
+  return `${format.format(integer)}.${decimal}`
 }
 
 //App function
@@ -139,7 +141,7 @@ function App() {
   return (
     <div className='calcGrid'>
       <div className='output'>
-        <div className='prevOp'>{formatOp(prevOp)} {op}</div>
+        <div className='prevOp'>{formatOp(prevOp)}{op}</div>
         <div className='currOp'>{formatOp(currOp)}</div>
       </div>
       <button className='span-two' onClick={() => dispatch({ type: ACTIONS.CLEAR })}>AC</button>
