@@ -2,9 +2,10 @@
   --mainColor: #2A2A2B;
   --currFont: rgb(45, 45, 45);
   --prevFont: rgb(130, 130, 130);
-  --border: #333;
+  --border: rgb(56, 56, 56);
   --output: #eee;
-  --calc: #aaa;
+  --calc: rgb(239, 147, 54);
+  --secondaryTextColorDark: #F95959;
 }
 
 *, *::before, *::after {
@@ -14,23 +15,75 @@
   font-family: "ubuntu";
 }
 
-html {
+body {
+  background-color: var(--mainColor);
+  line-height: 1.6;
   position: relative;
   min-height: 100%;
 }
 
-body {
-  background-color: var(--mainColor);
-  line-height: 1.6;
+.header {
+  text-align: center;
+  margin-top: 25px;
+  color: var(--output);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: var(--output);
+}
+
+.disclaimer {
+  margin-top: 10px;
+  font-size: 0.75rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondaryTextColorDark);
+}
+
+a:hover {
+  color: var(--prevFont);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.5rem;
 }
 
 button {
   border: none;
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
+  font-size: 1.75rem;
   cursor: pointer;
   outline: none;
+}
+
+.equals {
+  background-color: #7abb6d;
+}
+.equals:hover {
+  background-color: #609855;
+}
+
+.clear {
+  background-color: #6abcc4;
+}
+.clear:hover {
+  background-color: #5ba1a6;
+}
+
+.del {
+  background-color: #d35d5d;
+}
+.del:hover {
+  background-color: #b74f4f;
 }
 
 .calc-wrapper {
@@ -40,7 +93,7 @@ button {
   height: 75vh;
   min-height: 500px;
   padding: 10px;
-  margin-top: 50px;
+  margin-top: 25px;
 }
 
 .calcGrid {
@@ -57,10 +110,10 @@ button {
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-around;
-  padding: 10px 20px;
+  padding: 15px 25px;
   border: 2px var(--border) solid;
   border-radius: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   background-color: var(--output);
   text-align: right;
   word-wrap: break-word;
@@ -87,7 +140,6 @@ button {
   grid-template-columns: repeat(4, 5rem);
   grid-template-rows: repeat(5, 5rem);
   grid-gap: 10px;
-  font-size: 1.75rem;
 }
 
 .span-two {

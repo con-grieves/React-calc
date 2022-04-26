@@ -115,7 +115,7 @@ function evaluate({ currOp, prevOp, op }) {
     case "*":
       computation = prev * curr;
       break;
-    case "/":
+    case "÷":
       computation = prev / curr;
       break;
   }
@@ -140,7 +140,8 @@ function App() {
   return (
     <div className="body">
       <div className="header">
-
+          <h1>Calc.io</h1>
+          <p>Welcome to the future of calculation</p>
       </div>
       <div className="calc-wrapper">
         <div className="calcGrid">
@@ -153,15 +154,17 @@ function App() {
           </div>
           <div className="buttons">
           <button
-            className="span-two"
+            className="span-two clear"
             onClick={() => dispatch({ type: ACTIONS.CLEAR })}
           >
             AC
           </button>
-          <button onClick={() => dispatch({ type: ACTIONS.DELETE })}>
+          <button 
+          className="del"
+          onClick={() => dispatch({ type: ACTIONS.DELETE })}>
             DEL
           </button>
-          <OperationButton op="/" dispatch={dispatch} />
+          <OperationButton op="÷" dispatch={dispatch} />
           <DigitButton digit="1" dispatch={dispatch} />
           <DigitButton digit="2" dispatch={dispatch} />
           <DigitButton digit="3" dispatch={dispatch} />
@@ -177,7 +180,7 @@ function App() {
           <DigitButton digit="." dispatch={dispatch} />
           <DigitButton digit="0" dispatch={dispatch} />
           <button
-            className="span-two"
+            className="span-two equals"
             onClick={() => dispatch({ type: ACTIONS.EVALUATE })}
           >
             =
@@ -185,6 +188,10 @@ function App() {
           </div>
           
         </div>
+      </div>
+      <div className="footer">
+        <p>Built by <a href="https://con-grieves.github.io/Portfolio/" target="_blank">Connor Grieves</a> using React.js</p>
+        <p className="disclaimer">Disclaimer: This is a simple calculator app. Claims of innovation may not be accurate.</p>
       </div>
     </div>
   );
