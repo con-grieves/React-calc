@@ -146,4 +146,6 @@ button {
   grid-column: span 2;
 }
 
-
+@media screen and (max-width: 800px) {
+  h1, p {display: none;}
+} 
