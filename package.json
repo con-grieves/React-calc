@@ -1,7 +1,7 @@
 {
   "name": "react-calc",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "homepage": "https://con-grieves.github.io/react-calc/",
   "dependencies": {
     "-": "0.0.1",
